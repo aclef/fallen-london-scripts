@@ -50,7 +50,7 @@ function renderPreReqs() {
                 let text = tooltip.getAttribute('aria-label');
                 if (!text) continue;
                 preReqTextEl.textContent = text;
-                if (tooltip.parent.classList.contains('icon--locked')) {
+                if (tooltip.parentNode.classList.contains('icon--locked')) {
                     preReqTextEl.style.cssText = `color: ${reqLockedColor};`;
                 }
                 infoDiv.appendChild(preReqTextEl);
