@@ -2,7 +2,7 @@
 // @name         Fallen London - Display Storylet Prerequisites
 // @namespace    http://curwen/fallen.london.display.storylet.prerequisites
 // @description  For Fallen London - Displays storylet prerequisites as a plain text
-// @version      2.0
+// @version      2.1
 // @include      https://*fallenlondon.com/*
 // ==/UserScript==
 
