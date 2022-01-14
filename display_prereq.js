@@ -14,7 +14,8 @@ Loosely based on original script by arundor (2016)
 // Display style settings
 let reqFontSize = '80%';
 let reqVerticalPadding = '10px';
-let reqLockedColor = '#6a5e5e';
+let reqLockedColor = '#6a5e5e';  // color for locked requirements
+let showOnlyLocked = false;      // do not show already met requirements
 
 // Try to render our text descriptions each time page updates storylet nodes
 document.addEventListener('DOMNodeInserted', renderPreReqs, false);
@@ -40,17 +41,18 @@ function renderPreReqs() {
         // find all tooltip images with requirements
         let tooltips = storylet.querySelectorAll('.buttons .quality-requirement div[role=button]');
         let infoDiv = document.createElement('div');
+        infoDiv.setAttribute('class', 'plain_text_reqs');
         if (tooltips.length) {
-            infoDiv.setAttribute('class', 'plain_text_reqs');
             infoDiv.style.cssText = `font-size: ${reqFontSize}; padding: ${reqVerticalPadding} 0;`;
-
             for (let b = 0; b < tooltips.length; b++) {
                 let tooltip = tooltips[b];
+                let tooltipLocked = tooltip.parentNode.classList.contains('icon--locked');
+                if (showOnlyLocked && !tooltipLocked) continue; 
                 let preReqTextEl = document.createElement('p');
                 let text = tooltip.getAttribute('aria-label');
                 if (!text) continue;
                 preReqTextEl.textContent = text;
-                if (tooltip.parentNode.classList.contains('icon--locked')) {
+                if (tooltipLocked) {
                     preReqTextEl.style.cssText = `color: ${reqLockedColor};`;
                 }
                 infoDiv.appendChild(preReqTextEl);
