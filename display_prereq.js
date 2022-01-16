@@ -1,14 +1,15 @@
 // ==UserScript==
+// @author       Curwen Corey
 // @name         Fallen London - Display Storylet Prerequisites
-// @namespace    http://curwencorey.cc/fallen.london.display.storylet.prerequisites
-// @description  For Fallen London - Displays storylet prerequisites as a plain text
-// @version      2.3
+// @namespace    http://curwencorey.cc/
+// @description  Displays Fallen London storylet prerequisites as a plain text
+// @version      2.3.1
 // @include      https://*fallenlondon.com/*
 // ==/UserScript==
 
 /*
-Loosely based on original script by arundor (2016)
-(rewritten to work with the Fallen London redesigned page)
+Loosely based on logic from the original script by kaanyia and arundor (2016 version)
+This version was written from scratch to work with the Fallen London redesigned page.
 */
 
 // Display style settings
