@@ -3,12 +3,15 @@
 // @name         Fallen London - Display Storylet Prerequisites
 // @namespace    http://curwencorey.cc/
 // @description  Displays Fallen London storylet prerequisites as a plain text
-// @version      2.3.1
+// @downloadURL  https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
+// @updateURL    https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
+// @supportURL   https://github.com/aclef/fallen-london-scripts/issues
+// @version      2.3.2
 // @include      https://*fallenlondon.com/*
 // ==/UserScript==
 
 /*
-Loosely based on logic from the original script by kaanyia and arundor (2016 version)
+Loosely based on logic from the original scripts by kaanyia and arundor (2016 version)
 This version was written from scratch to work with the Fallen London redesigned page.
 */
 
