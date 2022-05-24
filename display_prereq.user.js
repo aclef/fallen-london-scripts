@@ -6,8 +6,9 @@
 // @downloadURL  https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
 // @updateURL    https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
 // @supportURL   https://github.com/aclef/fallen-london-scripts/issues
-// @version      2.3.2
-// @include      https://*fallenlondon.com/*
+// @version      2.4.0
+// @match      https://*.fallenlondon.com/*
+// @license MIT
 // ==/UserScript==
 
 /*
@@ -18,6 +19,7 @@ This version was written from scratch to work with the Fallen London redesigned 
 // Display style settings
 let reqFontSize = '80%';
 let reqVerticalPadding = '10px';
+let maxLength = 250;
 // color for locked branches
 let reqLockedColor = '#6a5e5e';
 // do not show already met requirements
@@ -68,6 +70,7 @@ function renderPreReqs() {
                 preReqTextEl.setAttribute('class', 'plain_text_requirement');
                 let text = tooltip.getAttribute('aria-label');
                 if (!text) continue;
+                if (text.length > maxLength) text = text.slice(0, maxLength) + '...';
                 preReqTextEl.textContent = text;
                 if (tooltipLocked) {
                     preReqTextEl.style.cssText = `color: ${reqLockedColor};`;
