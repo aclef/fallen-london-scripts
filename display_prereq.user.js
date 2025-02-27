@@ -6,7 +6,7 @@
 // @downloadURL  https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
 // @updateURL    https://github.com/aclef/fallen-london-scripts/blob/master/display_prereq.user.js
 // @supportURL   https://github.com/aclef/fallen-london-scripts/issues
-// @version      2.4.0
+// @version      3.0.0
 // @match      https://*.fallenlondon.com/*
 // @license MIT
 // ==/UserScript==
@@ -25,8 +25,11 @@ let reqLockedColor = '#6a5e5e';
 // do not show already met requirements
 let showOnlyLocked = false;
 
-// Try to render our text descriptions each time page updates storylet nodes
-document.addEventListener('DOMNodeInserted', renderPreReqs, false);
+// Set up a mutation observer
+new MutationObserver(function (mutations) {
+    // Run renderPreReqs on a mutation
+    renderPreReqs();
+}).observe(document, {childList: true, subtree: true});
 
 // also, re-render after changing active tab (required to support Plans rendering)
 let navLinks = document.querySelectorAll('li.nav__item');
